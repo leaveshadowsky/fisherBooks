@@ -29,6 +29,9 @@ class Gift(Base):
     # bid = Column(Integer, ForeignKey(book.id))
     isbn = Column(String(15), nullable=False)
 
+    #判断是否是你自己的礼物
+    def is_yourself_gift(self, uid):
+        return True if self.uid == uid else False
 
     # 根据用户id查询礼物清单
     @classmethod

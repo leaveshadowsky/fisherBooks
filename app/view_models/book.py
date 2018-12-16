@@ -4,7 +4,7 @@
 @contact: leaveshadow@outlook.com
 @file: book.py
 @time: 2018/12/5 13:32
-@desc:mvvm的vm层，类似于java中的javabean
+@desc:mvvm的vm层，用于将model层中的数据经处理后展现给某一页面
 """
 # 对单本书所得数据进行处理
 class BookViewModel:
