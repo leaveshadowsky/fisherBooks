@@ -39,6 +39,7 @@ class Drift(Base):
     # 使用枚举类表示鱼漂的四种状态
     _pending = Column('pending', SmallInteger, default=1)
 
+    # 返回将状态转为枚举类型返回，方便外部调用
     @property
     def pending(self):
         return PendingStatus(self._pending)

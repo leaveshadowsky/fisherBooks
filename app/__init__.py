@@ -9,7 +9,7 @@
 from flask import Flask
 from flask_login import LoginManager
 from flask_mail import Mail
-
+from app.web.book import web
 from app.models.base import db
 
 login_manager = LoginManager()
@@ -21,8 +21,8 @@ def create_app():
     app.config.from_object('app.secure')
     app.config.from_object('app.setting')
 
-    # 调用自定义方法将蓝图插件绑定至app核心对象(注册蓝图)
-    register_blueprint(app)
+    # 将蓝图插件绑定至app核心对象(注册蓝图)
+    app.register_blueprint(web)
 
     # 将sqlalchemy实例化的对象绑定至app核心对象
     db.init_app(app)
@@ -42,6 +42,3 @@ def create_app():
         db.create_all()
     return app
 
-def register_blueprint(app):
-    from app.web.book import web
-    app.register_blueprint(web)
